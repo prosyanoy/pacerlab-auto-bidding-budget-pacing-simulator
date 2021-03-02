@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64", "pybind11>=2.11"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pacerlab"
+version = "0.1.0"
+description = "Ad auction simulator comparing auto-bidding and budget-pacing algorithms"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "scipy", "matplotlib"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+ui = ["streamlit"]
+
+[project.scripts]
+pacerlab = "pacerlab.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+packages = ["pacerlab"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
